@@ -106,3 +106,15 @@ form button + p {
   margin: 0;
   font-size: 100%;
 }
+
+.radios {
+  line-height: 1;
+}
+.radios span {
+  margin-left: 0.25rem;
+  vertical-align: middle;
+}
+.radios label {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+}

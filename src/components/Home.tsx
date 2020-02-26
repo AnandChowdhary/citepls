@@ -6,6 +6,7 @@ import Article from "./search/Article";
 import { CitationResult } from "../interfaces/result";
 
 export default () => {
+  const [format, setFormat] = useState("IEEE");
   const [results, setResults] = useState<CitationResult[]>([
     {
       urls: [
@@ -62,13 +63,24 @@ export default () => {
           <div className="citations">
             <h2>Your citations</h2>
             <div className="radios">
-              <label>
-                <input type="radio" />
-                <span>APA</span>
-              </label>
+              <strong>Format:</strong>
+              {["IEEE", "APA", "MLA", "Chicago", "Harvard", "JSON"].map(
+                (name, index) => (
+                  <label key={`${name}_${index}`}>
+                    <input
+                      name="format"
+                      value={name}
+                      type="radio"
+                      checked={format === name}
+                      onChange={event => setFormat(event.currentTarget.value)}
+                    />
+                    <span>{name}</span>
+                  </label>
+                )
+              )}
             </div>
-            {results.map(result => (
-              <article>
+            {results.map((result, index) => (
+              <article key={`${result.doi}_${index}`}>
                 <p>{result.title}</p>
               </article>
             ))}
