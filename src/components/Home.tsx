@@ -74,6 +74,14 @@ export default () => {
               </article>
             ))}
             <button onClick={clear}>Remove all</button>
+            <h2>Caveats</h2>
+            <ul style={{ textAlign: "left" }}>
+              <li>
+                Only the first author's name is added, you'll have to manually
+                add the others
+              </li>
+              <li>Volume and issue are not added, you'll have to add them</li>
+            </ul>
           </div>
         ) : (
           ""
