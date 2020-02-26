@@ -1,3 +1,4 @@
+import got from "got";
 import metascraper from "metascraper";
 import author from "metascraper-author";
 import date from "metascraper-date";
@@ -17,4 +18,11 @@ const scraper = metascraper([
   lang()
 ]);
 
-export const scrapeMetaTags = async (url: string) => {};
+export const scrapeMetaTags = async (targetUrl: string) => {
+  const { body }: { body: { html: string; url: string } } = await got(
+    targetUrl
+  );
+  const { html, url } = body;
+  const metadata = await scraper({ html, url });
+  return metadata;
+};
