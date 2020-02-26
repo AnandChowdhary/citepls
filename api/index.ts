@@ -3,9 +3,9 @@ import { getSearchResults } from "../helpers/meta";
 
 export default async (req: NowRequest, res: NowResponse) => {
   try {
-    const url = req.query.url;
-    if (typeof url !== "string") throw new Error("Provide a URL");
-    const results = await getSearchResults(url);
+    const q = req.query.q;
+    if (typeof q !== "string") throw new Error("Provide a valid query");
+    const results = await getSearchResults(q);
     if (!results.length)
       return res.status(404).json({ error: "No results found" });
     const result = results[0];
