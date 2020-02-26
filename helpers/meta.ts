@@ -1,5 +1,5 @@
 import got from "got";
-import { ScopusResult, ScopusEntry } from "./interfaces";
+import { ScopusResult, ScopusEntry, AbstractResponse } from "./interfaces";
 
 const formatResult = (result: ScopusEntry) => {
   return {
@@ -38,5 +38,20 @@ export const getSearchResults = async (targetUrl: string) => {
       }
     }
   );
-  return result.body["search-results"].entry.map(i => formatResult(i));
+  const results = result.body["search-results"].entry.map(i => formatResult(i));
+  if (!results.length) return;
+  const authorUrl = results[0].urls[0];
+  let authorResult: any = {};
+  if (authorUrl) {
+    const authorInfo = await got.get<AbstractResponse>(authorUrl, {
+      responseType: "json",
+      headers: {
+        "X-ELS-APIKey": process.env.ELSEVIER_API_KEY
+      }
+    });
+    authorResult =
+      authorInfo.body["abstracts-retrieval-response"].coredata["dc:creator"]
+        .author;
+  }
+  return { ...results[0], authorResult };
 };

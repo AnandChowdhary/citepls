@@ -46,3 +46,21 @@ export interface ScopusResult {
     entry: ScopusEntry[];
   };
 }
+
+export interface Author {
+  "ce:given-name": string;
+  "ce:initials": string;
+  "ce:degrees": string;
+  "ce:surname": string;
+  "ce:indexed-name": string;
+}
+
+export interface AbstractResponse {
+  "abstracts-retrieval-response": {
+    coredata: {
+      "dc:creator": {
+        author: Author[];
+      };
+    };
+  };
+}
