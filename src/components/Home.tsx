@@ -5,6 +5,7 @@ import "react-tabs/style/react-tabs.css";
 import Article from "./search/Article";
 
 export default () => {
+  const submitHandler = (type: string, query: string) => {};
   return (
     <>
       <header>
@@ -18,9 +19,7 @@ export default () => {
             <Tab>Website</Tab>
           </TabList>
           <TabPanel>
-            <h2>
-              <Article />
-            </h2>
+            <Article onSubmit={(type, query) => submitHandler(type, query)} />
           </TabPanel>
           <TabPanel>
             <p>Coming soon...</p>
