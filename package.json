@@ -8,9 +8,11 @@
     "local": "now dev"
   },
   "devDependencies": {
-    "@now/node": "^1.2.0"
+    "@now/node": "^1.2.0",
+    "@types/cheerio": "^0.22.16"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "got": "^10.6.0"
   }
 }
