@@ -4,6 +4,10 @@ import { CitationResult } from "../interfaces/result";
 import Article from "./search/Article";
 import Format from "./Format";
 import "react-tabs/style/react-tabs.css";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("UA-39298323-6");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export default () => {
   const [format, setFormat] = useState("IEEE");
@@ -17,6 +21,10 @@ export default () => {
     console.log("Got result", result);
     setResults([result, ...results]);
     localStorage.setItem("citepls", JSON.stringify([result, ...results]));
+    ReactGA.event({
+      category: "Citation",
+      action: result.title
+    });
   };
   const clear = () => {
     setResults([]);
