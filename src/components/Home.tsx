@@ -7,10 +7,16 @@ import "react-tabs/style/react-tabs.css";
 
 export default () => {
   const [format, setFormat] = useState("IEEE");
-  const [results, setResults] = useState<CitationResult[]>([]);
+  let localResults = [];
+  try {
+    const local = localStorage.getItem("citepls");
+    if (local) localResults = JSON.parse(local);
+  } catch (error) {}
+  const [results, setResults] = useState<CitationResult[]>(localResults);
   const submitHandler = (result: CitationResult) => {
     console.log("Got result", result);
     setResults([result, ...results]);
+    localStorage.setItem("citepls", JSON.stringify([result, ...results]));
   };
   return (
     <>
