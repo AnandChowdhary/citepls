@@ -11,6 +11,7 @@
     "@now/node": "^1.2.0"
   },
   "dependencies": {
+    "got": "^10.6.0",
     "metascraper": "^5.11.4",
     "metascraper-author": "^5.11.1",
     "metascraper-clearbit": "^5.11.4",
