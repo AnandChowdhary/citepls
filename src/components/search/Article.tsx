@@ -14,7 +14,7 @@ export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
       setError("");
       onSubmit(result);
     } catch (error) {
-      setError(error);
+      setError(error.toString());
       setTimeout(() => {
         setError("");
       }, 5000);
@@ -32,7 +32,8 @@ export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
         <>
           {error ? (
             <div className="error">
-              <strong>Error: </strong>We couldn't find the provided title.
+              <strong>Error: </strong>
+              {error}
             </div>
           ) : (
             ""
