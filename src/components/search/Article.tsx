@@ -6,6 +6,7 @@ export default ({
   onSubmit(type: string, query: string): void;
 }) => {
   const [title, setTitle] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,6 +22,13 @@ export default ({
         </div>
       ) : (
         <>
+          {error ? (
+            <div className="error">
+              <strong>Error: </strong>We couldn't find the provided title.
+            </div>
+          ) : (
+            ""
+          )}
           <label>
             <span>Article title</span>
             <input

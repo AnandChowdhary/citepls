@@ -86,3 +86,10 @@ form button + p {
 .loading img {
   height: 5rem;
 }
+
+.error {
+  background-color: #9d2e2c;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 2rem;
+}
