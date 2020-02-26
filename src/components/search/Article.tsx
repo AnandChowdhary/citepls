@@ -13,6 +13,7 @@ export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
       const result = await fetchCitationResult(title);
       setError("");
       onSubmit(result);
+      setTitle("");
     } catch (error) {
       setError(error.toString());
       setTimeout(() => {

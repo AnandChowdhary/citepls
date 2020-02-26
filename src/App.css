@@ -93,3 +93,16 @@ form button + p {
   border-radius: 0.2rem;
   margin-bottom: 2rem;
 }
+
+.citations article {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 0.2rem;
+  margin-top: 1rem;
+}
+.citations article h3,
+.citations article p {
+  margin: 0;
+  font-size: 100%;
+}
