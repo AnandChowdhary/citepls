@@ -1,17 +1,21 @@
 import React, { useState, FormEvent } from "react";
+import { fetchCitationResult } from "../../helpers/fetch";
+import { CitationResult } from "../../interfaces/result";
 
-export default ({
-  onSubmit
-}: {
-  onSubmit(type: string, query: string): void;
-}) => {
+export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
   const [title, setTitle] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
-    onSubmit("article", title);
+    try {
+      const result = await fetchCitationResult(title);
+      onSubmit(result);
+    } catch (error) {
+      setError(error);
+    }
+    setLoading(false);
   };
   return (
     <form onSubmit={submit}>

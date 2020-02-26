@@ -3,9 +3,10 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 import Article from "./search/Article";
+import { CitationResult } from "../interfaces/result";
 
 export default () => {
-  const submitHandler = (type: string, query: string) => {};
+  const submitHandler = (result: CitationResult) => {};
   return (
     <>
       <header>
@@ -19,7 +20,7 @@ export default () => {
             <Tab>Website</Tab>
           </TabList>
           <TabPanel>
-            <Article onSubmit={(type, query) => submitHandler(type, query)} />
+            <Article onSubmit={submitHandler} />
           </TabPanel>
           <TabPanel>
             <p>Coming soon...</p>
