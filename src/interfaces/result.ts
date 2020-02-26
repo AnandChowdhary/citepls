@@ -18,4 +18,11 @@ export interface CitationResult {
   openAccess: boolean;
   source: string;
   pages: string;
+  authorResult: {
+    "ce:given-name": string;
+    "ce:initials": string;
+    "ce:degrees": string;
+    "ce:surname": string;
+    "ce:indexed-name": string;
+  }[];
 }
