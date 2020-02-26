@@ -8,7 +8,7 @@ export interface ScopusEntry {
   "dc:title": string;
   "dc:creator": string;
   "prism:publicationName": string;
-  "prism:isbn": {
+  "prism:isbn"?: {
     $: string;
   }[];
   "prism:coverDate": string;

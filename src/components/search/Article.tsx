@@ -11,9 +11,13 @@ export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
     setLoading(true);
     try {
       const result = await fetchCitationResult(title);
+      setError("");
       onSubmit(result);
     } catch (error) {
       setError(error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
     setLoading(false);
   };
@@ -21,7 +25,7 @@ export default ({ onSubmit }: { onSubmit(result: CitationResult): void }) => {
     <form onSubmit={submit}>
       {loading ? (
         <div className="loading">
-          <img src="/loading.svg" />
+          <img alt="" src="/loading.svg" />
           <p>Finding your article...</p>
         </div>
       ) : (

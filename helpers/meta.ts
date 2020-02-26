@@ -3,17 +3,17 @@ import { ScopusResult, ScopusEntry } from "./interfaces";
 
 const formatResult = (result: ScopusEntry) => {
   return {
-    urls: result.link.map(i => i["@href"]),
+    urls: (result.link || []).map(i => i["@href"]),
     url: result["prism:url"],
     dc: result["dc:identifier"],
     title: result["dc:title"],
     creator: result["dc:creator"],
     publication: result["prism:publicationName"],
-    isbns: result["prism:isbn"].map(i => i.$),
+    isbns: (result["prism:isbn"] || []).map(i => i.$),
     date: new Date(result["prism:coverDate"]),
     doi: result["prism:doi"],
     citations: result["citedby-count"],
-    affiliations: result.affiliation.map(i => ({
+    affiliations: (result.affiliation || []).map(i => ({
       name: i.affilname,
       city: i["affiliation-city"],
       country: i["affiliation-country"]
