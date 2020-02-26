@@ -43,7 +43,7 @@ export default () => {
   return (
     <>
       <header>
-        <h1>Citegen</h1>
+        <h1>Citepls</h1>
         <p>Unlimited free citation generator</p>
       </header>
       <main>
