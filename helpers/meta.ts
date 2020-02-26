@@ -19,7 +19,8 @@ const formatResult = (result: ScopusEntry) => {
       country: i["affiliation-country"]
     })),
     number: result["article-number"],
-    openAccess: result.openaccessFlag
+    openAccess: result.openaccessFlag,
+    source: result["source-id"]
   };
 };
 

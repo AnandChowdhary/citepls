@@ -47,7 +47,6 @@ main {
 }
 .home-tabs .react-tabs__tab-panel {
   background-color: rgba(0, 0, 0, 0.5);
-  min-width: 500px;
   padding: 2rem;
   border-radius: 0.2rem;
 }
@@ -117,4 +116,8 @@ form button + p {
 .radios label {
   display: inline-block;
   margin: 0.5rem 1rem;
+}
+
+footer {
+  font-size: 80%;
 }
