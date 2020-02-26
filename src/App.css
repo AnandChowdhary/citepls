@@ -99,6 +99,7 @@ form button + p {
   padding: 1.5rem;
   border-radius: 0.2rem;
   margin-top: 1rem;
+  word-break: break-word;
 }
 .citations article h3,
 .citations article p {
