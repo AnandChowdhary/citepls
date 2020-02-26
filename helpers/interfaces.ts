@@ -21,6 +21,7 @@ export interface ScopusEntry {
     "affiliation-country": string;
   }[];
   "prism:aggregationType": string;
+  "prism:pageRange": string;
   subtype: string;
   subtypeDescription: string;
   "article-number": number;

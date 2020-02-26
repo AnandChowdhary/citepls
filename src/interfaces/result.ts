@@ -17,4 +17,5 @@ export interface CitationResult {
   number: string;
   openAccess: boolean;
   source: string;
+  pages: string;
 }

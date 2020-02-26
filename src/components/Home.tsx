@@ -18,6 +18,10 @@ export default () => {
     setResults([result, ...results]);
     localStorage.setItem("citepls", JSON.stringify([result, ...results]));
   };
+  const clear = () => {
+    setResults([]);
+    localStorage.setItem("citepls", JSON.stringify([]));
+  };
   return (
     <>
       <header>
@@ -69,6 +73,7 @@ export default () => {
                 <Format format={format} result={result} />
               </article>
             ))}
+            <button onClick={clear}>Remove all</button>
           </div>
         ) : (
           ""

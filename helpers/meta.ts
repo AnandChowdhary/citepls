@@ -20,7 +20,9 @@ const formatResult = (result: ScopusEntry) => {
     })),
     number: result["article-number"],
     openAccess: result.openaccessFlag,
-    source: result["source-id"]
+    source: result["source-id"],
+    pages: result["prism:pageRange"],
+    originalResult: result
   };
 };
 
