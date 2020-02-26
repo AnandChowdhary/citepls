@@ -9,5 +9,16 @@
   },
   "devDependencies": {
     "@now/node": "^1.2.0"
+  },
+  "dependencies": {
+    "metascraper": "^5.11.4",
+    "metascraper-author": "^5.11.1",
+    "metascraper-clearbit": "^5.11.4",
+    "metascraper-date": "^5.11.1",
+    "metascraper-description": "^5.11.1",
+    "metascraper-lang": "^5.11.1",
+    "metascraper-publisher": "^5.11.1",
+    "metascraper-title": "^5.11.1",
+    "metascraper-url": "^5.11.1"
   }
 }
