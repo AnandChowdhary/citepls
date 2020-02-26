@@ -1,0 +1,5 @@
+{
+  "env": {
+    "ELSEVIER_API_KEY": "@elsevier_api_key"
+  }
+}
